@@ -1,3 +1,4 @@
+#Verifica se o grafo é euleriano contando o grau dos vértices
 def verificaGrafo(matriz,lista):
     eureliano = True
     cont = 0
@@ -15,7 +16,9 @@ def verificaGrafo(matriz,lista):
             if(a==b and matriz[a][b] == 1):
                 cont= cont + 1       
     return lista, eureliano, somaGraus
-    
+
+
+#Encontra os ciclos do grafo e vai eliminando as arestas, assim como no algoritmo de Hierholzer
 def cicloEuleriano(matriz,lista,somaGraus,ciclo,resultado,i): 
     linha = 0
     while(lista[i] == 0):
@@ -37,7 +40,8 @@ def cicloEuleriano(matriz,lista,somaGraus,ciclo,resultado,i):
                 resposta = sequencia(matriz,lista,ciclo,resultado,somaGraus)
         coluna += 1
     return resposta
-            
+
+#Recebe os ciclos e vai inserindo na lista resultante            
 def sequencia(matriz,lista,ciclo,resultado,somaGraus):
     penultima = 0
     ultima = 0
@@ -62,7 +66,7 @@ def sequencia(matriz,lista,ciclo,resultado,somaGraus):
         ciclo = []
         cicloEuleriano(matriz,lista,somaGraus,ciclo,resultado,penultima)    
     return resultado
-
+#Cria a matriz, insere os vertices e as peças do dominó são representadas pelas arestas
 def main():
     matrizAdjacencia = [[0,0,0,0,0,0,0], [0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
     qnt = int(input())
